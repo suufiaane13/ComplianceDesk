@@ -1,0 +1,64 @@
+# Dependencies
+**/node_modules/
+**/vendor/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Builds & caches
+frontend/dist/
+backend/public/build/
+backend/public/hot/
+backend/public/storage
+backend/storage/*.key
+backend/bootstrap/cache/*.php
+!backend/bootstrap/cache/.gitignore
+
+# PHP / Laravel
+composer.phar
+.phpunit.result.cache
+.phpactor.json
+auth.json
+Homestead.json
+Homestead.yaml
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.idea/
+.vscode/
+.cursor/
+.fleet/
+.nova/
+.zed/
+*.swp
+*~
+others/docs/~$*
+others/docs/_gen_out.docx
+others/docs/__pycache__/
+**/__pycache__/
+
+# Local databases
+*.sqlite
+*.sqlite-journal
+backend/database/database.sqlite
+
+# SonarQube / SonarCloud
+.sonarcloud.token
+.scannerwork/
+.sonar/
+**/.scannerwork/
+**/coverage/
+backend/coverage.xml
+frontend/coverage/
+
+# Local PCOV binary (Windows) — not committed
+tools/pcov/

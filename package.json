@@ -1,0 +1,10 @@
+{
+  "name": "compliancedesk",
+  "private": true,
+  "description": "Scripts racine ComplianceDesk (SonarCloud, etc.)",
+  "scripts": {
+    "coverage:php": "node scripts/php-coverage.mjs",
+    "sonar": "node scripts/sonar-scan.mjs",
+    "sonar:full": "npm run coverage:php && npm run sonar"
+  }
+}
