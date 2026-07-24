@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="others/logo_compliancedesk.png" alt="ComplianceDesk" width="200" />
+  <img src="others/logo_compliancedesk.png" alt="ComplianceDesk" width="240" />
   &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="others/logo_entsi.jpeg" alt="ENTSI" width="200" />
 </p>
