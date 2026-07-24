@@ -17,15 +17,20 @@ jobs:
         with:
           php-version: '8.2'
           extensions: mbstring, pdo_sqlite, fileinfo
-          coverage: none
+          coverage: pcov
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist
       - name: Prepare environment
         run: |
           cp .env.example .env
           php artisan key:generate
-      - name: Run tests
-        run: php artisan test
+      - name: Run tests with coverage
+        run: php artisan test --coverage-clover=../coverage.xml
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: php-coverage
+          path: backend/coverage.xml
 
   frontend:
     runs-on: ubuntu-latest
@@ -45,3 +50,20 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
+
+  sonarcloud:
+    needs: [backend, frontend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download PHP coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: php-coverage
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
