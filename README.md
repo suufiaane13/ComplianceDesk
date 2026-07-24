@@ -1,12 +1,22 @@
-# ComplianceDesk
+<p align="center">
+  <img src="others/logo_compliancedesk.png" alt="ComplianceDesk" width="120" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="others/logo_entsi.jpeg" alt="ENTSI" width="120" />
+</p>
 
-SaaS multi-tenant pour le suivi des obligations réglementaires des PME marocaines  
-(CNSS, assurances, médecine du travail, autorisations, etc.).
+<h1 align="center">ComplianceDesk</h1>
 
-Chaque entreprise a son espace isolé (obligations, documents, notifications).  
-Un `super_admin` gère les entreprises de la plateforme.
+<p align="center">
+  SaaS multi-tenant pour le suivi des obligations réglementaires des PME marocaines<br/>
+  (CNSS, assurances, médecine du travail, autorisations, etc.)
+</p>
 
-Projet de stage ENTSI — licence MIT.
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-12-FF2D20?style=flat&logo=laravel" alt="Laravel" />
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/Tailwind-3-06B6D4?style=flat&logo=tailwindcss" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/Licence-MIT-green" alt="Licence MIT" />
+</p>
 
 ---
 
