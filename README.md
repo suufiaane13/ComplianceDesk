@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="others/logo_compliancedesk.png" alt="ComplianceDesk" width="120" />
+  <img src="others/logo_compliancedesk.png" alt="ComplianceDesk" width="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="others/logo_entsi.jpeg" alt="ENTSI" width="120" />
+  <img src="others/logo_entsi.jpeg" alt="ENTSI" width="200" />
 </p>
 
 <h1 align="center">ComplianceDesk</h1>
@@ -15,8 +15,12 @@
   <img src="https://img.shields.io/badge/Laravel-12-FF2D20?style=flat&logo=laravel" alt="Laravel" />
   <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react" alt="React" />
   <img src="https://img.shields.io/badge/Tailwind-3-06B6D4?style=flat&logo=tailwindcss" alt="Tailwind" />
-  <img src="https://img.shields.io/badge/Licence-MIT-green" alt="Licence MIT" />
 </p>
+
+---
+
+Chaque entreprise a son espace isolé (obligations, documents, notifications).  
+Un `super_admin` gère les entreprises de la plateforme.
 
 ---
 
@@ -126,8 +130,8 @@ Après `php artisan migrate --seed` :
 
 Comptes locaux uniquement. Mot de passe trivial des seeders : à changer ou désactiver en production.
 
-Pas d’inscription publique : les comptes sont créés par un supérieur  
-(`super_admin` → admin d’entreprise, `admin` → utilisateur).
+Pas d'inscription publique : les comptes sont créés par un supérieur  
+(`super_admin` → admin d'entreprise, `admin` → utilisateur).
 
 ---
 
@@ -157,7 +161,7 @@ npm run build
 cd backend
 php artisan migrate:fresh --seed
 
-# Recalcul des statuts d’obligations
+# Recalcul des statuts d'obligations
 php artisan obligations:refresh-statuts
 
 # SonarCloud (depuis la racine, token dans .sonarcloud.token)
@@ -184,19 +188,11 @@ Emails envoyés via Brevo SMTP :
 
 | Email | Quand |
 |-------|--------|
-| Compte créé | Création d’un utilisateur / admin (lien `/set-password`) |
-| Entreprise suspendue | Suspension d’un tenant (admins notifiés) |
+| Compte créé | Création d'un utilisateur / admin (lien `/set-password`) |
+| Entreprise suspendue | Suspension d'un tenant (admins notifiés) |
 
 Sans Brevo en local : `MAIL_MAILER=log` dans `.env` (écriture dans les logs Laravel).
 
 Avec Brevo, renseigner dans `backend/.env` : `MAIL_HOST`, `MAIL_USERNAME`, `MAIL_PASSWORD`,  
 `MAIL_FROM_ADDRESS` (expéditeur **vérifié**), `FRONTEND_URL`, puis `php artisan config:clear`.  
 Ne jamais committer la clé SMTP.
-
----
-
-## Licence
-
-MIT — voir `LICENSE`.
-
-**Explication simple :** la licence MIT permet à n’importe qui d’utiliser, modifier et redistribuer ce code (même pour un usage commercial), à condition de conserver la mention de copyright et le texte de la licence. Le logiciel est fourni « tel quel », sans garantie.
