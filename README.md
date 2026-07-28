@@ -41,21 +41,29 @@
 
 ```bash
 # Backend
-cd backend && composer install && copy .env.example .env && php artisan key:generate
+cd backend; composer install; copy .env.example .env; php artisan key:generate
 ```
-Configurer MySQL dans `.env`, puis :
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=compliancedesk
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Puis :
 ```bash
 php artisan migrate --seed
 ```
 
 ```bash
 # Frontend
-cd frontend && npm install && npm run dev
+cd frontend; npm install; npm run dev
 ```
 
 ```bash
 # Terminal 2 — API
-cd backend && php artisan serve
+cd backend; php artisan serve
 ```
 
 **App** → http://localhost:3000 · **API** → http://localhost:8000
@@ -100,6 +108,37 @@ frontend/        SPA React (port 3000)
 ├── utils/                date, nav, obligation
 others/          Captures, UML, logos, rapport
 scripts/         SonarCloud, couverture PHP
+```
+
+## Modèles
+
+```
+┌──────────────┐     ┌──────────────┐
+│  Entreprise  │1───*│    User      │
+│──────────────│     │──────────────│
+│ raison_sociale│     │ nom, email   │
+│ statut       │     │ rôle         │
+└──────┬───────┘     └──────────────┘
+       │1
+       │
+       ├──────────────┐
+       │1             │1
+┌──────┴───────┐ ┌────┴──────────┐
+│  Obligation  │ │   Category    │
+│──────────────│ │───────────────│
+│ intitulé     │ │ nom           │
+│ date_échéance│ └───────────────┘
+│ statut       │
+│ catégorie    │
+└──────┬───────┘
+       │1
+       │
+┌──────┴───────┐ ┌──────────────┐
+│   Document   │ │ Notification │
+│──────────────│ │──────────────│
+│ nom_fichier  │ │ type, message│
+│ chemin       │ │ lue          │
+└──────────────┘ └──────────────┘
 ```
 
 ---
@@ -165,9 +204,9 @@ Sans Brevo : `MAIL_MAILER=log` dans `.env`.
 ## Tests & Qualité
 
 ```bash
-cd backend && php artisan test          # PHPUnit
-cd frontend && npm test                 # Vitest
-npm run sonar:full                      # SonarCloud
+cd backend; php artisan test          # PHPUnit
+cd frontend; npm test                 # Vitest
+npm run sonar:full                    # SonarCloud
 ```
 
 CI (GitHub Actions) à chaque push :
