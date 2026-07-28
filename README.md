@@ -112,34 +112,9 @@ scripts/         SonarCloud, couverture PHP
 
 ## Modèles
 
-```
-┌──────────────┐     ┌──────────────┐
-│  Entreprise  │1───*│    User      │
-│──────────────│     │──────────────│
-│ raison_sociale│     │ nom, email   │
-│ statut       │     │ rôle         │
-└──────┬───────┘     └──────────────┘
-       │1
-       │
-       ├──────────────┐
-       │1             │1
-┌──────┴───────┐ ┌────┴──────────┐
-│  Obligation  │ │   Category    │
-│──────────────│ │───────────────│
-│ intitulé     │ │ nom           │
-│ date_échéance│ └───────────────┘
-│ statut       │
-│ catégorie    │
-└──────┬───────┘
-       │1
-       │
-┌──────┴───────┐ ┌──────────────┐
-│   Document   │ │ Notification │
-│──────────────│ │──────────────│
-│ nom_fichier  │ │ type, message│
-│ chemin       │ │ lue          │
-└──────────────┘ └──────────────┘
-```
+<p align="center">
+  <img src="others/uml/02-class-diagram.png" alt="Diagramme de classes" width="700" />
+</p>
 
 ---
 
