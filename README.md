@@ -66,6 +66,11 @@ cd frontend; npm install; npm run dev
 cd backend; php artisan serve
 ```
 
+```bash
+# Terminal 3 — Queue (si QUEUE_CONNECTION=database)
+cd backend; php artisan queue:work
+```
+
 **App** → http://localhost:3000 · **API** → http://localhost:8000
 
 ---
@@ -217,5 +222,5 @@ CI (GitHub Actions) à chaque push :
 ---
 
 <p align="center">
-  <i>Stage de fin d'études — ENTSI</i>
+  <i>Stage — ENTSI</i>
 </p>
