@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100%;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: #faf9f7;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply transition-colors duration-200;
+  }
+
+  html.dark,
+  html.dark body {
+    background: #0f172a;
+    color: #e2e8f0;
+  }
+
+  html.dark select option {
+    background-color: #0f172a;
+    color: #e2e8f0;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  ::selection {
+    background: #99f6e4;
+    color: #134e4a;
+  }
+
+  .dark ::selection {
+    background: #115e59;
+    color: #ccfbf1;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+}
+
+@layer components {
+  .date-input {
+    color-scheme: light;
+  }
+  .dark .date-input {
+    color-scheme: dark;
+  }
+  .date-input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.75rem;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .date-input::-webkit-datetime-edit {
+    padding: 0;
+  }
+  .date-input::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+
+  /* Native select — hide OS caret, keep our custom chevron */
+  .select-field {
+    background-image: none;
+  }
+  .select-field::-ms-expand {
+    display: none;
+  }
+
+  /* Loading screen progress line */
+  .loading-track {
+    position: relative;
+  }
+  .loading-bar {
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    will-change: transform;
+    animation: loading-bar-slide 1.15s ease-in-out infinite;
+  }
+  @keyframes loading-bar-slide {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(350%);
+    }
+  }
+}
